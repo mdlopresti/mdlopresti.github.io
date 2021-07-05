@@ -3,6 +3,14 @@
 name: generate-static-files
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '.devcontainer/**'
+      - '.vscode/**'
+      - 'ReadMe.md'
   workflow_dispatch:
 
 jobs:
