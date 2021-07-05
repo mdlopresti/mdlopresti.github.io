@@ -1,18 +1,48 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import PostListing from '../components/PostListing'
 
-export default function Home() {
+type PostData = {
+  slug: string,
+  title: string
+  excerpt: string
+}[]
+
+type IndexProps = {
+  postData: PostData
+}
+
+export default function Home(props: IndexProps) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>mdlopresti.dev</title>
-        <meta name="description" content="A blog by on software and automation by Michael LoPresti" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <footer className={styles.footer}>
-      </footer>
+    <div>
+      <PostListing posts={props.postData} />
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join('posts'))
+
+  const slugs = files.map(filename =>
+    filename.replace('.md', '')
+  )
+
+  const markdownFileContent = slugs.map(slug => fs.readFileSync(path.join('posts', slug + '.md'), 'utf-8'))
+
+  const postData: PostData = markdownFileContent.map(fileContent => {
+    const greyMatter = matter(fileContent)
+
+    return {
+      slug: greyMatter.data.slug,
+      title: greyMatter.data.title,
+      excerpt: greyMatter.data.excerpt
+    }
+  });
+
+  return {
+    props: {
+      postData
+    }
+  }
 }
