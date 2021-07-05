@@ -28,6 +28,9 @@ jobs:
       - name: next export
         run: npm run export
 
+      - name: set CNAME
+        run: echo 'mdlopresti.dev' > docs/CNAME
+
       - name: Commit content
         run: |
           git config --global user.name 'next.js'
