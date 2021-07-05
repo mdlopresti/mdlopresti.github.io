@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import PostListing from '../components/PostListing'
+import { Row } from 'react-bootstrap'
 
 type PostData = {
   slug: string,
@@ -15,9 +16,7 @@ type IndexProps = {
 
 export default function Home(props: IndexProps) {
   return (
-    <div>
-      <PostListing posts={props.postData} />
-    </div>
+    <PostListing posts={props.postData} />
   )
 }
 

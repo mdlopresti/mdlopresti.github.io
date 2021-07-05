@@ -1,7 +1,11 @@
+import { Row } from "react-bootstrap"
+
 export default function Footer() {
     return (
-        <footer>
-            <h4>copyright Michael LoPresti 2021</h4>
-        </footer>
+        <Row>
+            <footer>
+                <p>copyright Michael LoPresti 2021</p>
+            </footer>
+        </Row>
     )
 }

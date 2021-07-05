@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { Row } from 'react-bootstrap'
 
 type PostPageProps = {
     frontmatter: {
@@ -11,10 +12,12 @@ type PostPageProps = {
 
 export default function PostPage(props: PostPageProps) {
     return (
-        <div>
-            <h3>{props.frontmatter.title}</h3>
-            {props.content}
-        </div>
+        <Row>
+            <article>
+                <h3>{props.frontmatter.title}</h3>
+                <p>{props.content}</p>
+            </article>
+        </Row>
     )
 }
 

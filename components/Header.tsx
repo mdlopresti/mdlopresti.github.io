@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { Row } from 'react-bootstrap'
 
 export default function Header() {
     return (
-        <div>
+        <Row>
             <Head>
                 <title>Automation or Bust</title>
                 <meta name="description" content="A blog by on software and automation by Michael LoPresti" />
@@ -15,7 +16,7 @@ export default function Header() {
                     </a>
                 </Link>
             </header>
-        </div>
+        </Row>
 
     )
 }
