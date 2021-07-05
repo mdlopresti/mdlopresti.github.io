@@ -19,6 +19,10 @@ Things that need doing ASAP
 
 - [x] ~~enable markdown posts~~
 - [ ] Create Theme
+  - [x] ~~Bootstrap~~
+  - [ ] Layout
+  - [ ] Colors
+  - [ ] breadcrumbs
 - [ ] Write 5 blog posts
   - [ ] How this blog's code works
   - [ ] How I think this blog will work
