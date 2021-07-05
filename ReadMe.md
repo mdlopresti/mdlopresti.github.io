@@ -8,15 +8,16 @@ This repo contains the source code for https://mdlopresti.dev.  This is a blog s
 
 Things that need doing ASAP
 
-- [ ] Create Devcontainer
-- [ ] Create a static website with Next.js
-- [ ] Github
-  - [ ] repo
-  - [ ] actions to generate static site
+- [x] Create Devcontainer
+- [x] Create a static website with Next.js
+- [x] Github
+  - [x] repo
+  - [x] actions to generate static site
 - [ ] Write about page
 
 ### Pre-Launch
 
+- [ ] enable markdown posts
 - [ ] Write 5 blog posts
 - [ ] Dark Mode slider
 - [ ] social links
