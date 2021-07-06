@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap';
+import Breadcrumb from '../../components/Breadcrumb'
 
 type PostPageProps = {
     frontmatter: {
@@ -12,12 +13,15 @@ type PostPageProps = {
 
 export default function PostPage(props: PostPageProps) {
     return (
-        <Row>
-            <article>
-                <h3>{props.frontmatter.title}</h3>
-                <p>{props.content}</p>
-            </article>
-        </Row>
+        <>
+            <Breadcrumb />
+            <Row>
+                <article>
+                    <h3>{props.frontmatter.title}</h3>
+                    <p>{props.content}</p>
+                </article>
+            </Row>
+        </>
     )
 }
 

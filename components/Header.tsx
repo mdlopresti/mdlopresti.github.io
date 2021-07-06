@@ -1,10 +1,25 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { Row } from 'react-bootstrap'
+// import '../styles/Header.css'
+
+type NavBarProps = {
+    items: {
+        name: string,
+        slug: string
+    }[]
+}
+
+const NavbarItems: NavBarProps["items"] = [
+    {
+        name: "About Me",
+        slug: "about"
+    }
+]
 
 export default function Header() {
     return (
-        <Row>
+        <>
             <Head>
                 <title>Automation or Bust</title>
                 <meta name="description" content="A blog by on software and automation by Michael LoPresti" />
@@ -15,14 +30,35 @@ export default function Header() {
                     crossOrigin="anonymous"
                 />
             </Head>
-            <header>
+            <div className="navbar navbar-expand navbar-light bg-light">
                 <Link href="/">
-                    <a>
-                        <h1>Automation or Bust</h1>
+                    <a className="navbar-brand">
+                        Automation or Bust
                     </a>
                 </Link>
-            </header>
-        </Row>
+                <div className="navbar-nav">
+                    <NavBar items={NavbarItems} />
+                </div>
+            </div>
+        </>
 
+    )
+}
+
+
+
+function NavBar(NavBarProps: NavBarProps): JSX.Element {
+    return (
+        <div id="navbarNav">
+            <ul className="navbar-nav">
+                {NavBarProps.items.map(item => (
+                    <Link key={item.slug} href={item.slug} passHref>
+                        <li className="nav-item">
+                            <a className="nav-link">{item.name}</a>
+                        </li>
+                    </Link>
+                ))}
+            </ul>
+        </div>
     )
 }

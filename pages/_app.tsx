@@ -6,11 +6,13 @@ import { Container } from 'react-bootstrap';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Container>
+    <>
       <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </Container>
+      <Container>
+        <Component {...pageProps} />
+        <Footer />
+      </Container>
+    </>
   )
 }
 export default MyApp
