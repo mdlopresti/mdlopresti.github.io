@@ -17,7 +17,7 @@ function toTitleCase(str: string) {
 }
 
 
-export default function Breadcrumb() {
+export default function BreadcrumbComponent() {
     const path = useRouter().asPath
     const crumbs = path.split("/")
     crumbs[0] = "Home"

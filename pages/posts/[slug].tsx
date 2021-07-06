@@ -2,13 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Row } from 'react-bootstrap';
-import Breadcrumb from '../../components/Breadcrumb'
+import Breadcrumb from '../../components/Breadcrumb';
+import marked from 'marked';
 
 type PostPageProps = {
     frontmatter: {
         title: string
     },
     content: string
+}
+
+function setContent(content:string) {
+    return {
+        __html: marked(content)
+    }
 }
 
 export default function PostPage(props: PostPageProps) {
@@ -18,7 +25,7 @@ export default function PostPage(props: PostPageProps) {
             <Row>
                 <article>
                     <h3>{props.frontmatter.title}</h3>
-                    <p>{props.content}</p>
+                    <div dangerouslySetInnerHTML={setContent(props.content)} />
                 </article>
             </Row>
         </>
